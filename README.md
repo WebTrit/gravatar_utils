@@ -1,40 +1,41 @@
 # gravatar_utils
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Dart package to [generate the URLs](https://en.gravatar.com/site/implement) required to request [Gravatar](https://en.gravatar.com) Images and Profile data.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Generate the URLs for all Gravatar Requests (except [PHP Profile Data](https://en.gravatar.com/site/implement/profiles/php/)).
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add `gravatar_utils` as a [dependency in your pubspec.yaml file](https://flutter.dev/using-packages/).
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+With `Gravatar` object:
 ```dart
-const like = 'sample';
+import 'package:gravatar_utils/gravatar_utils.dart';
+
+void main() {
+  final gravatar = Gravatar('example@email');
+  print('Gravatar image URL: ${gravatar.image(scheme: 'https')}');
+}
 ```
 
-## Additional information
+With `String` extension:
+```dart
+import 'package:gravatar_utils/gravatar_utils.dart';
+import 'package:gravatar_utils/gravatar_utils_extensions.dart';
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+void main() {
+  print('Gravatar image URL: ${'example@email'.gravatarImageUrl(scheme: 'https')}');
+}
+```
+
+## Contributing
+
+Contributions are always welcome!
+
+## License
+
+[MIT LICENSE](LICENSE)
